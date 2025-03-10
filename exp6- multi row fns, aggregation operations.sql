@@ -76,3 +76,21 @@ from enrollments
 group by courseid
 -- where count(*)>10; -- error gives
 having count(*)>10;                  -- group by ke baad data filter krna ha too use having not where
+
+
+
+
+
+
+use scott;
+show tables;
+select *from emp order by empno;
+select deptno, max(sal) as maxsal from emp group by deptno;
+
+-- manager ko kitni pay, clerks ko kitni pay ; group by jobs
+select job, sum(sal), count(*) from emp group by job;
+
+select deptno, job, sum(sal), count(*)
+from emp
+group by deptno, job -- department alag phir within dept job alag
+order by deptno;
